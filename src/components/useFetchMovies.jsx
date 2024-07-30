@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const API_KEY = "e03b34b9";
+const API_KEY = import.meta.env.VITE_API_KEY;
 const API_URL = "https://www.omdbapi.com/";
 
 const useFetchMovies = (searchTerm = "Marvel") => {
@@ -32,8 +32,7 @@ const useFetchMovies = (searchTerm = "Marvel") => {
         setMovies(moviesData.slice(0, 20));
         setLoading(false);
       } catch (error) {
-        console.error("Error fetching movies:", error);
-        setError(error.message || "An error occurred");
+        setError(error.message || "An error occured");
         setLoading(false);
       }
     };

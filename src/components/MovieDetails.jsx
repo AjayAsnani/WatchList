@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
-const API_KEY = "e03b34b9";
+const API_KEY = import.meta.env.VITE_API_KEY;
 const API_URL = "https://www.omdbapi.com/";
 
 const MovieDetails = () => {
@@ -20,8 +20,7 @@ const MovieDetails = () => {
         setMovie(response.data);
         setLoading(false);
       } catch (error) {
-        console.error("Error fetching movie:", error);
-        setError(error.message || "An error occurred");
+        setError(error);
         setLoading(false);
       }
     };
@@ -29,7 +28,7 @@ const MovieDetails = () => {
   }, [id]);
 
   if (loading) return <p>Loading data...</p>;
-  if (error) return <p>Error Fetching Data: {error}</p>;
+  if (error) return <p>Error Fetching Data: {error.message}</p>;
 
   return (
     <div className="max-w-4xl mx-auto p-4 bg-white shadow-md rounded-lg">
@@ -37,7 +36,7 @@ const MovieDetails = () => {
         <div className="flex flex-col md:flex-row">
           <img
             src={movie.Poster}
-            alt={`${movie.Title} Poster`}
+            alt="{`${movie.Title}Poster`}"
             className="w-full md:w-1/2 lg:w-1/3 h-auto mb-4 md:mb-0 rounded-lg"
           />
           <div className="md:ml-6 flex-1">
