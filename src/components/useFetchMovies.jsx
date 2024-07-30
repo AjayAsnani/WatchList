@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { API_KEY, API_URL } from "../../config";
+
+const API_KEY = "e03b34b9";
+const API_URL = "http://www.omdbapi.com/";
 
 const useFetchMovies = (searchTerm = "Marvel") => {
   const [movies, setMovies] = useState([]);
