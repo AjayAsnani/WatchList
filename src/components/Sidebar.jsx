@@ -10,7 +10,7 @@ const Sidebar = ({ onLogout, userEmail, likedMovies, isSidebarVisible }) => {
     <div
       className={`fixed top-0 left-0  p-4 transition-transform duration-300 ${
         isSidebarVisible ? "translate-x-0" : "-translate-x-full"
-      } lg:translate-x-0 lg:relative lg:w-[20%]`}
+      } lg:translate-x-0 lg:relative lg:w-[20%] bg-white`}
     >
       <div className="h-full">
         <h2 className="text-3xl font-bold text-red-500 text-center">

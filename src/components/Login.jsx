@@ -3,9 +3,15 @@ import { Link } from "react-router-dom";
 
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
 
   const handleLogin = () => {
-    onLogin(email);
+    if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setEmailError("");
+      onLogin(email);
+    } else {
+      alert("Please enter a valid email address");
+    }
   };
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-ray-100">
