@@ -1,7 +1,6 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import { Link } from "react-router-dom";
-import { FaTrash } from "react-icons/fa";
 
 const LikedMovies = ({ userEmail, onLogout, likedMovies, onRemoveMovie }) => {
   return (
