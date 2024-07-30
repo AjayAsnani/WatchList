@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { API_KEY } from "../../config";
-
-const API_URL = "http://www.omdbapi.com/";
+import { API_KEY, API_URL } from "../../config";
 
 const MovieDetails = () => {
   const { id } = useParams();
